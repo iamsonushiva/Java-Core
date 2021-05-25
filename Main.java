@@ -1,49 +1,51 @@
 package com.company;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
+        List<String> cakeName = new ArrayList<>();
+        cake c1 = new cake();
+        cakeName.add("Chocolate Brownie");
+        cakeName.add("Chocolate Maple");
+        c1.setName(cakeName);
 
-        System.out.println("-----------------------------------");
-        System.out.println("        TAX CALCULATOR APP         ");
-        System.out.println("-----------------------------------");
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("ENTER THE TOTAL PERSON COUNT");
-        int count=scanner.nextInt();
-        String[] employee = new String[10];
-        long[] income = new long[10];
-        Scanner s1= new Scanner(System.in);
-        for(int i = 0; i<count; i++)
+        List<Float> cakePrice = new ArrayList();
+        cakePrice.add(250.0f);
+        cakePrice.add(300.0f);
+        c1.setPrice(cakePrice);
+
+        List<String> pastryName = new ArrayList();
+        pastry c2 = new pastry();
+        pastryName.add("Black Forest");
+        pastryName.add("Choco Truffle");
+        c2.setName(pastryName);
+
+        List<Float> pastryPrice = new ArrayList();
+        pastryPrice.add(35.0f);
+        pastryPrice.add(40.0f);
+        c2.setPrice(pastryPrice);
+
+        System.out.println("           Today's Special Menu       ");
+        System.out.println("--------------------------------------");
+        System.out.println("Special Cakes                         ");
+        System.out.println("--------------------------------------");
+
+
+        for (int i=0;i<1;i++)
         {
-            System.out.println("Enter the Name of Employee - "+ (i+1));
-            employee[i]=s1.nextLine();
-            System.out.println("Enter "+ employee[i] + "'s Annual Income:");
-            income[i]=s1.nextLong();
+            c2.display(cakeName, cakePrice);
         }
-        scanner.close();
-        for(int j=0;j<count;j++)
+    }
+        System.out.println("Special Pastry");
+        System.out.println("--------------------------------------");
+
+        for(int i=0;i<1;i++)
         {
-            calculateTax(employee[j],income[j]);
+            c2.display( pastryName, pastryPrice);
         }
-
-
-    }
-    public static void calculateTax(String name,long income)
-    {
-        double tax;
-        if(income>=300000)
-            tax=(float)income*20/100;
-        else if ( income>=100000)
-            tax = (float) income * 10 / 100;
-        else
-            tax=0;
-        System.out.println("----------------------------------------");
-        System.out.println("NAME OF THE EMPLOYEE : "+name);
-        System.out.println("TAX TO BE PAID in Rs :"+tax);
-        System.out.println("----------------------------------------");
-
-    }
-
 }
+
+
