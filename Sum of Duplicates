@@ -1,0 +1,43 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int n;
+        int[] ar = new int[100];
+        System.out.println("Enter the number of integers");
+        Scanner scanner=new Scanner(System.in);
+        n= scanner.nextInt();
+        System.out.println("Enter the Numbers");
+        for(int j=0;j<n;j++)
+        {
+            ar[j]= scanner.nextInt();
+        }
+        int newSum = sumDuplicateElements(ar, n);
+
+            System.out.print(newSum);
+
+
+    }
+    public static int sumDuplicateElements(int arr[], int n){
+        if (n==0 || n==1){
+            int i = arr[n];
+            return i;
+        }
+
+        int sum = 0;
+        for (int i=0; i<n-1; i++)
+        {
+            if (arr[i] == arr[i+1])
+            {
+                sum += arr[i];
+            }
+        }
+        if(sum==0)
+            return -1;
+        else
+            return sum;
+    }
+
