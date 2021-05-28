@@ -1,0 +1,36 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[][] matrix = new int[100][100];
+        int row;
+        int col;
+        System.out.println("Enter the number for Row count");
+        Scanner scanner = new Scanner(System.in);
+        row = scanner.nextInt();
+        System.out.println("Enter the number for Column count");
+        col = scanner.nextInt();
+        System.out.println("Enter the numbers in the matrix form");
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col; j++)
+            {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        int sum=0;
+        for (int i = 0; i < row; i++)
+        {
+            if (i != 0 && i != row - 1)
+                for (int j = 0; j < col; j++)
+                {
+                    if (j != 0 && j != col - 1)
+                        sum += matrix[i][j];
+                }
+        }
+        System.out.println("The sum of MIDDLE integers in the matrix is : " + sum);
+    }
+}
