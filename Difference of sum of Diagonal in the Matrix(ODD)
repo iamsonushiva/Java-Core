@@ -1,0 +1,43 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[][] matrix = new int[100][100];
+        int num;
+        System.out.println("Enter the odd number for Rows and Column count");
+        Scanner scanner = new Scanner(System.in);
+        num = scanner.nextInt();
+        if (num % 2 == 0)
+        {
+            System.out.println("SORRY!!! the entered number is Even");
+            System.exit(0);
+        }
+        System.out.println("Enter the numbers in the matrix form");
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num ; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        printDiagonalSums(matrix, num);
+    }
+
+ static void printDiagonalSums(int[][] mat, int n) {
+        int principal = 0, secondary = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+                if (i == j)
+                    principal += mat[i][j];
+
+                if ((i + j) == (n - 1))
+                    secondary += mat[i][j];
+            }
+        }
+            int diff = principal - secondary;
+            System.out.println("The Diagonal Difference is : " + diff + " For the two diagonal sum of Forward : " + principal + " and reverse : " + secondary);
+
+    }
+}
