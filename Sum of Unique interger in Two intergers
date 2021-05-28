@@ -1,0 +1,44 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int m;
+        int n;
+        System.out.println("Enter the first number");
+        Scanner scanner=new Scanner(System.in);
+        m= scanner.nextInt();
+        System.out.println("Enter the second Number");
+        n= scanner.nextInt();
+        int nSum = sumElements(n);
+        int mSum = sumElements(m);
+        if (nSum == mSum)
+            System.out.print("YES!!!  The sum of unique digits in two integers is same");
+        else
+            System.out.print("NO!!!   The sum of unique digits in two integers is not same");
+
+
+    }
+    public static int sumElements(int num){
+        if (num==0 || num==1)
+        {
+            return num;
+        }
+        boolean[] used = new boolean[10];
+        int sum = 0;
+        while (num>0)
+        {
+        int digit= num % 10;
+        if (!used[digit])
+        {
+            used[digit] = true;
+            sum += digit;
+        }
+        num=num/10;
+
+        }
+      return sum;
+    }
+}
